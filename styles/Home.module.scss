@@ -1,0 +1,43 @@
+@use 'styles/variables.scss';
+
+.homepage {
+    height: calc(100% - 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../public/friends.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+
+    &__title {
+        color: white;
+    }
+
+    &__form {
+        margin-top: .5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        width: 300px;
+        height: 80px;
+        padding: 14px;
+        border-radius: 6px;
+    }
+
+    &__input {
+        width: 100%;
+        border: none;
+        padding: 6px;
+
+        &--submit {
+            margin-top: .5rem;
+            border-radius: 6px;
+            background-color: variables.$secondary-color;
+        }
+    }
+}
