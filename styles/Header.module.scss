@@ -1,0 +1,28 @@
+@use "styles/variables";
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: variables.$primary-color;
+    height: 3rem;
+
+    &__title {
+        color: white;
+        font-size: 20px;
+    }
+
+    &__link {
+        color: black;
+        background-color: #FECD45;
+        padding: 4px 16px;
+        border-radius: 3px;
+        
+        &:link {
+            text-decoration: none;
+        }
+    }
+}
