@@ -13,6 +13,7 @@
     &__title {
         color: white;
         font-size: 20px;
+        text-decoration: none;
     }
 
     &__link {
@@ -20,9 +21,6 @@
         background-color: #FECD45;
         padding: 4px 16px;
         border-radius: 3px;
-        
-        &:link {
-            text-decoration: none;
-        }
+        text-decoration: none;
     }
 }
