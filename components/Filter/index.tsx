@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import filterData from "../../utils/filter";
 import styles from '../../styles/Filter.module.scss';
+import Filters from "../../types/filters";
 
-export function Filter() {
-    const [filters, setFilters] = useState(filterData);
+export function Filter({filters, setFilters}: {filters: Filters, setFilters: React.Dispatch<React.SetStateAction<Filters>>}) {
     const [isOpen, setIsOpen] = useState(false);
 
     function handleCheckboxChange(event: React.ChangeEvent<HTMLInputElement>) {
