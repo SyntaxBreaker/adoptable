@@ -1,7 +1,7 @@
 export default [
     {
         id: 202,
-        name: 'name1',
+        name: 'Name1',
         type: 'Bird',
         breed: 'Breed', 
         gender: 'Female',
@@ -11,7 +11,7 @@ export default [
     },
     {
         id: 203,
-        name: 'name2',
+        name: 'Name2',
         type: 'Bird',
         breed: 'Breed', 
         gender: 'Male',
@@ -21,7 +21,7 @@ export default [
     },
     {
         id: 204,
-        name: 'name3',
+        name: 'Name3',
         type: 'Bird',
         breed: 'Breed', 
         gender: 'Female',
@@ -31,7 +31,7 @@ export default [
     },
     {
         id: 205,
-        name: 'name4',
+        name: 'Name4',
         type: 'Bird',
         breed: 'Breed', 
         gender: 'Male',
@@ -41,7 +41,7 @@ export default [
     },
     {
         id: 206,
-        name: 'name5',
+        name: 'Name5',
         type: 'Bird',
         breed: 'Breed', 
         gender: 'Male',
@@ -51,7 +51,7 @@ export default [
     },
     {
         id: 207,
-        name: 'name6',
+        name: 'Name6',
         type: 'Bird',
         breed: 'Breed', 
         gender: 'Female',
