@@ -6,5 +6,5 @@ export default interface IPet {
     location: string;
     name: string;
     size: string;
-    type: string;
+    species: string;
 }
