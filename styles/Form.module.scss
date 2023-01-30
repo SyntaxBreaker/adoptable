@@ -1,7 +1,7 @@
 @use './variables';
 
 .form {
-    margin: 1rem auto;
+    margin: 1rem 1rem;
     padding: 1rem;
     background-color: variables.$primary-color;
     color: variables.$secondary-color;
@@ -64,11 +64,12 @@
                     position: absolute;
                     top: 0;
                     left: 0;
-                    background-color: variables.$secondary-color;
                     width: 100%;
                     height: 30px;
                     border-radius: 6px;
-                    opacity: .4;
+                    background: rgba(241, 208, 10, 0.4);
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(0px);
                 }
             }
         }
@@ -80,8 +81,7 @@
         }
 
         &--button {
-            position: relative;
-            left: calc(100% - 15%);
+            width: 100%;
             margin-top: 1.2rem;
             background-color: variables.$secondary-color;
         }
