@@ -7,7 +7,7 @@ function Edit() {
             <Head>
                 <title>Edit pet announcement</title>
             </Head>
-            <Form />
+            <Form method="POST" />
         </>
     )
 }

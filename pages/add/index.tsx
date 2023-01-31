@@ -7,7 +7,7 @@ function Add() {
             <Head>
                 <title>Add a pet</title>
             </Head>
-            <Form />
+            <Form method='POST' />
         </>
     )
 }
