@@ -16,6 +16,11 @@
         text-decoration: none;
     }
 
+    &__links {
+        display: flex;
+        gap: .5rem;
+    }
+
     &__link {
         color: black;
         background-color: variables.$secondary-color;
