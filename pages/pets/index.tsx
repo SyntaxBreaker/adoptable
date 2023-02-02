@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Filter } from "../../components/Filter";
 import styles from '../../styles/Pets.module.scss';
-import pets from '../../utils/mock';
 import Card from "../../components/Card";
 import filterData from "../../utils/filter";
+import IPet from '../../types/pet';
+import { PrismaClient } from "@prisma/client";
+import { NextApiRequest } from "next";
 
-function Pets() {
+function Pets({ pets }: { pets: IPet[] }) {
     const [filters, setFilters] = useState(filterData);
     const [species, setSpecies] = useState<string[]>([]);
     const [gender, setGender] = useState<string[]>([]);
@@ -75,6 +77,12 @@ function Pets() {
             </div>
         </div>
     )
+}
+
+export const getServerSideProps = async ({ req }: { req: NextApiRequest }) => {
+    const prisma = new PrismaClient();
+    const pets = await prisma.pets.findMany();
+    return { props: { pets } }
 }
 
 export default Pets;
