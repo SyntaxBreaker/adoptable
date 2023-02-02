@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Pets {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  authorId String
+  name String
+  species String
+  breed String
+  gender String
+  age String
+  size String
+  location String
+}
