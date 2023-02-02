@@ -30,17 +30,17 @@ function Form({ method }: { method: string }) {
         <form className={styles['form']} onSubmit={handleSubmit}>
             <label className={styles['form__label']}>
                 Title:
-                <input type="text" name='title' placeholder='Enter title' onChange={handleChange} className={styles['form__input']} />
+                <input type="text" name='title' placeholder='Enter title' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Location:
-                <input type="text" name='location' placeholder='Enter location' onChange={handleChange} className={styles['form__input']} />
+                <input type="text" name='location' placeholder='Enter location' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Species:
                 <div className={styles['form__group']}>
                     <div className={styles['form__item']}>
-                        <input type="radio" value="Bird" name="species" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Bird</span>
+                        <input type="radio" value="Bird" name="species" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} required /> <span className={styles['form__input--text']}>Bird</span>
                     </div>
                     <div className={styles['form__item']}>
                         <input type="radio" value="Cat" name="species" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Cat</span>
@@ -61,13 +61,13 @@ function Form({ method }: { method: string }) {
             </label>
             <label className={styles['form__label']}>
                 Breed:
-                <input type="text" name='breed' placeholder='Enter breed' onChange={handleChange} className={styles['form__input']} />
+                <input type="text" name='breed' placeholder='Enter breed' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Gender:
                 <div className={styles['form__group']}>
                     <div className={styles['form__item']}>
-                        <input type="radio" value="Female" name="gender" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Female</span>
+                        <input type="radio" value="Female" name="gender" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} required /> <span className={styles['form__input--text']}>Female</span>
                     </div>
                     <div className={styles['form__item']}>
                         <input type="radio" value="Male" name="gender" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Male</span>
@@ -81,7 +81,7 @@ function Form({ method }: { method: string }) {
                 Age:
                 <div className={styles['form__group']}>
                     <div className={styles['form__item']}>
-                        <input type="radio" value="Adult" name="age" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Adult</span>
+                        <input type="radio" value="Adult" name="age" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} required /> <span className={styles['form__input--text']}>Adult</span>
                     </div>
                     <div className={styles['form__item']}>
                         <input type="radio" value="Baby" name="age" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Baby</span>
@@ -98,7 +98,7 @@ function Form({ method }: { method: string }) {
                 Size:
                 <div className={styles['form__group']}>
                     <div className={styles['form__item']}>
-                        <input type="radio" value="Unknown" name="size" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Unknown</span>
+                        <input type="radio" value="Unknown" name="size" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} required /> <span className={styles['form__input--text']}>Unknown</span>
                     </div>
                     <div className={styles['form__item']}>
                         <input type="radio" value="Small" name="size" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Small</span>
