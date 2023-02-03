@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../../styles/Form.module.scss'
+import styles from '../../styles/Form.module.scss';
+import { useUser } from '@auth0/nextjs-auth0/client';
+import Router from 'next/router';
 
 function Form({ method }: { method: string }) {
     const [formData, setFormData] = useState({
-        title: '',
+        name: '',
         location: '',
         species: '',
         breed: '',
@@ -11,6 +13,8 @@ function Form({ method }: { method: string }) {
         age: '',
         size: ''
     });
+
+    const { user, error, isLoading } = useUser();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = event.target;
@@ -23,14 +27,27 @@ function Form({ method }: { method: string }) {
 
     const handleSubmit = (event: React.SyntheticEvent): void => {
         event.preventDefault();
-        console.log(formData);
+
+        if (method === 'POST') {
+            const data = {
+                ...formData,
+                authorId: user?.email
+            }
+
+            fetch('/api/create', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).then(() => {
+                Router.push('/pets');
+            })
+        }
     }
 
     return (
         <form className={styles['form']} onSubmit={handleSubmit}>
             <label className={styles['form__label']}>
-                Title:
-                <input type="text" name='title' placeholder='Enter title' onChange={handleChange} className={styles['form__input']} required />
+                Name:
+                <input type="text" name='name' placeholder='Enter name' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Location:
