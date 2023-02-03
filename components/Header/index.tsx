@@ -11,7 +11,7 @@ export default function Header() {
             {user ? (
                 <div className={styles['header__links']}>
                     <Link href="/account" className={styles['header__link']}>Account</Link>
-                    <Link href="/api/auth/logout" className={styles['header__link']}>Logut</Link>
+                    <Link href="/api/auth/logout" className={styles['header__link']}>Logout</Link>
                 </div>
             ) : <Link href="/api/auth/login" className={styles['header__link']}>Login</Link>}
         </header>
