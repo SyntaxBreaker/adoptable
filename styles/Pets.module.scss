@@ -28,4 +28,16 @@
         gap: .5rem;
         flex-wrap: wrap;
     }
+
+    &__link {
+        flex-basis: 48%;
+
+        @media screen and (min-width: 768px) {
+            flex-basis: 32%;
+        }
+
+        @media screen and (min-width: 1200px) {
+            flex-basis: 24%;
+        }
+    }
 }

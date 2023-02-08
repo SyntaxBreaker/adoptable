@@ -2,20 +2,11 @@
 
 .pet-card {
     background-color: aliceblue;
-    flex-basis: 48%;
     height: 300px;
     background-size: cover;
     background-position: center;
     position: relative;
     border-radius: 10px;
-
-    @media screen and (min-width: 768px) {
-        flex-basis: 32%;
-    }
-
-    @media screen and (min-width: 1200px) {
-        flex-basis: 24%;
-    }
 
     &:hover {
         cursor: pointer;

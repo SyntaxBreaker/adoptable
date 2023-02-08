@@ -3,7 +3,7 @@ import IPet from '../../types/pet';
 
 export default function Card(pet: IPet) {
     return (
-        <div className={styles['pet-card']} style={{backgroundImage: `url(https://cdn.pixabay.com/photo/2013/07/07/04/58/weimaraner-143753_960_720.jpg)`}}>
+        <div className={styles['pet-card']} style={{ backgroundImage: `url(${pet.images[0]})` }}>
             <button className={styles['pet-card__button']}>💙</button>
             <div className={styles['pet-card__body']}>
                 <p className={styles['pet-card__name']}>{pet.name}</p>

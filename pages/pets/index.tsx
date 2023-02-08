@@ -6,6 +6,7 @@ import filterData from "../../utils/filter";
 import IPet from '../../types/pet';
 import { PrismaClient } from "@prisma/client";
 import { NextApiRequest } from "next";
+import Link from "next/link";
 
 function Pets({ pets }: { pets: IPet[] }) {
     const [filters, setFilters] = useState(filterData);
@@ -71,7 +72,9 @@ function Pets({ pets }: { pets: IPet[] }) {
                 <h2>{filteredPets.length} results in pets!</h2>
                 <div className={styles['pets__wrapper']}>
                     {filteredPets.map(pet => (
-                        <Card key={pet.id} {...pet} />
+                        <Link href={`/pet/${pet.id}`} key={pet.id} className={styles['pets__link']}>
+                            <Card {...pet} />
+                        </Link>
                     ))}
                 </div>
             </div>
