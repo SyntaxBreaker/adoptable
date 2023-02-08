@@ -7,4 +7,5 @@ export default interface IPet {
     name: string;
     size: string;
     species: string;
+    images: string[];
 }
