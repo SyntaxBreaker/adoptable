@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from '../../styles/Form.module.scss';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import IFormData from '../../types/form';
+import axios from 'axios';
 import Router from 'next/router';
 
 function Form({ method }: { method: string }) {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<IFormData>({
         name: '',
         location: '',
         species: '',
@@ -13,33 +15,73 @@ function Form({ method }: { method: string }) {
         age: '',
         size: ''
     });
+    const [images, setImages] = useState<string[]>([]);
 
     const { user, error, isLoading } = useUser();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = event.target;
 
+        if (name === "images") {
+            const files = event.target.files;
+
+            if (files) {
+                for (let i = 0; i < files.length; i++) {
+                    let reader = new FileReader();
+                    reader.onload = function (e) {
+                        setImages(prev => [...prev, reader.result as string]);
+                    };
+                    reader.readAsDataURL(files[i]);
+                }
+            }
+
+            return;
+        }
+
         setFormData(prev => ({
             ...prev,
             [name]: value
-        }))
+        }));
     }
 
-    const handleSubmit = (event: React.SyntheticEvent): void => {
+    const handleSubmit = async (event: React.SyntheticEvent) => {
         event.preventDefault();
 
-        if (method === 'POST') {
-            const data = {
-                ...formData,
-                authorId: user?.email
+        try {
+            const imageURLs: string[] = [];
+
+            for (let i = 0; i < images.length; i++) {
+                const image = images[i].split(",")[1];
+                const formData = new FormData();
+                formData.set("key", `${process.env.IMGBB_API_KEY}`);
+                formData.append("image", image);
+
+                const res = await axios({
+                    method: "POST",
+                    url: "https://api.imgbb.com/1/upload",
+                    data: formData,
+                });
+
+                imageURLs.push(res.data.data.url);
             }
 
-            fetch('/api/create', {
-                method: 'POST',
-                body: JSON.stringify(data)
-            }).then(() => {
-                Router.push('/pets');
-            })
+            if (method === 'POST') {
+                const data = {
+                    ...formData,
+                    authorId: user?.email,
+                    images: imageURLs
+                }
+
+                await fetch('/api/create', {
+                    method: 'POST',
+                    body: JSON.stringify(data)
+                })
+                    .then(() => {
+                        Router.push('/pets');
+                    })
+            }
+        } catch (err) {
+            console.log(err);
         }
     }
 
@@ -133,6 +175,10 @@ function Form({ method }: { method: string }) {
                         <input type="radio" value="Extra large" name="size" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Extra large</span>
                     </div>
                 </div>
+            </label>
+            <label className={styles['form__label']}>
+                images:
+                <input type="file" name='images' multiple onChange={handleChange} className={styles['form__input']} required />
             </label>
             <button className={`${styles['form__input']} ${styles['form__input--button']}`}>Submit</button>
         </form>

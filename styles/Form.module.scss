@@ -84,6 +84,10 @@
             width: 100%;
             margin-top: 1.2rem;
             background-color: variables.$secondary-color;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }
