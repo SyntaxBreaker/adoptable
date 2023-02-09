@@ -5,5 +5,6 @@ export default interface IFormData {
     breed: string,
     gender: string,
     age: string,
-    size: string
+    size: string,
+    images?: string[]
 }
