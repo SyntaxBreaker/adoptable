@@ -8,4 +8,5 @@ export default interface IPet {
     size: string;
     species: string;
     images: string[];
+    authorId: string;
 }
