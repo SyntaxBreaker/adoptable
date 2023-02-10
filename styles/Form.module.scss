@@ -1,7 +1,7 @@
 @use './variables';
 
 .form {
-    margin: 1rem 1rem;
+    margin: 1rem;
     padding: 1rem;
     background-color: variables.$primary-color;
     color: variables.$secondary-color;
@@ -88,6 +88,37 @@
             &:hover {
                 cursor: pointer;
             }
+        }
+    }
+
+    &__images {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    &__heading {
+        margin-top: 16px;
+        font-size: 16px;
+
+        &--normal {
+            font-weight: normal;
+        }
+    }
+
+    &__image {
+        position: relative;
+        flex-basis: calc(100% / 2 - 12px);
+        height: auto;
+        object-fit: cover;
+
+        @media screen and (min-width: 768px) {
+            flex-basis: calc(100% / 3 - 12px);
+        }
+
+        @media screen and (min-width: 1440px) {
+            flex-basis: calc(100% / 4 - 12px);
         }
     }
 }

@@ -5,6 +5,7 @@ import IFormData from '../../types/form';
 import axios from 'axios';
 import Router from 'next/router';
 import IPet from '../../types/pet';
+import Image from 'next/image';
 
 function Form({ method, pet }: { method: string, pet?: IPet }) {
     const [formData, setFormData] = useState<IFormData>({
@@ -206,8 +207,16 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
                     </div>
                 </div>
             </label>
+            <>
+                <h2 className={`${styles['form__heading']} ${styles['form__heading--normal']}`}>Uploaded images:</h2>
+                <div className={styles['form__images']}>
+                    {formData.images?.map(image => (
+                        <Image src={image} width={0} height={0} sizes="100vw" alt='' className={styles['form__image']} />
+                    ))}
+                </div>
+            </>
             <label className={styles['form__label']}>
-                images:
+                Images:
                 <input type="file" name='images' multiple onChange={handleChange} className={styles['form__input']} />
             </label>
             <button className={`${styles['form__input']} ${styles['form__input--button']}`}>Submit</button>
