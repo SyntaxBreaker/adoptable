@@ -120,5 +120,14 @@
         @media screen and (min-width: 1440px) {
             flex-basis: calc(100% / 4 - 12px);
         }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__paragraph {
+        margin-top: 8px;
+        text-align: center;
     }
 }

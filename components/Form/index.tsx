@@ -61,6 +61,15 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
         }));
     }
 
+    const handleRemoveUploadedImages = (imageURL: string) => {
+        const {images} = formData;
+        
+        setFormData({
+            ...formData,
+            images: images?.filter(image => image !== imageURL)
+        });
+    }
+
     const handleSubmit = async (event: React.SyntheticEvent) => {
         event.preventDefault();
 
@@ -211,9 +220,10 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
                 <h2 className={`${styles['form__heading']} ${styles['form__heading--normal']}`}>Uploaded images:</h2>
                 <div className={styles['form__images']}>
                     {formData.images?.map(image => (
-                        <Image src={image} width={0} height={0} sizes="100vw" alt='' className={styles['form__image']} />
+                        <Image src={image} width={0} height={0} sizes="100vw" alt='' className={styles['form__image']} onClick={() => handleRemoveUploadedImages(image)} key={image} />
                     ))}
                 </div>
+                <p className={`${styles['form__paragraph']}`}>Click the image to remove it.</p>
             </>
             <label className={styles['form__label']}>
                 Images:
