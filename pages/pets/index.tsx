@@ -7,6 +7,7 @@ import IPet from '../../types/pet';
 import { PrismaClient } from "@prisma/client";
 import { NextApiRequest } from "next";
 import Link from "next/link";
+import Head from 'next/head';
 
 function Pets({ pets }: { pets: IPet[] }) {
     const [filters, setFilters] = useState(filterData);
@@ -66,19 +67,24 @@ function Pets({ pets }: { pets: IPet[] }) {
     }, [filters])
 
     return (
-        <div className={styles['pets']}>
-            <Filter filters={filters} setFilters={setFilters} />
-            <div className={styles['pets__container']}>
-                <h2>{filteredPets.length} results in pets!</h2>
-                <div className={styles['pets__wrapper']}>
-                    {filteredPets.map(pet => (
-                        <Link href={`/pet/${pet.id}`} key={pet.id} className={styles['pets__link']}>
-                            <Card {...pet} />
-                        </Link>
-                    ))}
+        <>
+            <Head>
+                <title>All pets</title>
+            </Head>
+            <div className={styles['pets']}>
+                <Filter filters={filters} setFilters={setFilters} />
+                <div className={styles['pets__container']}>
+                    <h2>{filteredPets.length} results in pets!</h2>
+                    <div className={styles['pets__wrapper']}>
+                        {filteredPets.map(pet => (
+                            <Link href={`/pet/${pet.id}`} key={pet.id} className={styles['pets__link']}>
+                                <Card {...pet} />
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

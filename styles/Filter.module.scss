@@ -1,6 +1,9 @@
 @use './variables';
 
 .form {
+    background-color: #f2f2f2;
+    padding: .5rem;
+
     @media screen and (min-width: 768px) {
         width: 20%;
     }
@@ -35,10 +38,10 @@
 
         @media screen and (min-width: 768px) {
             margin-top: initial;
-            
+
             &:not(:first-child) {
                 margin-top: 1rem;
-            }   
+            }
         }
     }
 
@@ -46,7 +49,7 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        gap: .75rem;
+        gap: 4px;
         margin-top: .5rem;
 
         @media screen and (min-width: 768px) {
@@ -56,11 +59,24 @@
     }
 
     &__label {
-        font-size: 1.2rem;
+        font-size: 22px;
     }
 
     &__input {
-        margin-right: .25rem;
-        accent-color: variables.$primary-color;
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+        appearance: none;
+        border-radius: 4px;
+        border: 2px solid variables.$primary-color;
+
+        &:checked {
+            background-color: variables.$primary-color;
+        }
+
+        &:disabled {
+            border-color: #c0c0c0;
+            background-color: #c0c0c0;
+        }
     }
 }

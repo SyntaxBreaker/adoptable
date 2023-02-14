@@ -3,8 +3,7 @@
 .pets {
     display: flex;
     flex-direction: column;
-    padding: 0 .5rem;
-    margin-top: 1rem;
+    gap: 16px;
 
     @media screen and (min-width: 768px) {
         flex-direction: row;
@@ -14,6 +13,7 @@
         width: 100%;
         margin-top: 1rem;
         margin-bottom: 1rem;
+        padding: .5rem;
 
         @media screen and (min-width: 768px) {
             margin-top: initial;
