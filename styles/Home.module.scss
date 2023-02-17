@@ -31,9 +31,10 @@
 
     &__input {
         width: 100%;
-        border: none;
         padding: 6px;
         text-align: center;
+        border: 1px dashed variables.$primary-color;
+        border-radius: 4px;
 
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
@@ -41,6 +42,7 @@
         }
 
         &--submit {
+            border: none;
             margin-top: .5rem;
             border-radius: 6px;
             background-color: variables.$secondary-color;

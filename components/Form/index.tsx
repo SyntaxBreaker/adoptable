@@ -62,8 +62,8 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
     }
 
     const handleRemoveUploadedImages = (imageURL: string) => {
-        const {images} = formData;
-        
+        const { images } = formData;
+
         setFormData({
             ...formData,
             images: images?.filter(image => image !== imageURL)
@@ -196,9 +196,6 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
             <label className={styles['form__label']}>
                 Size:
                 <div className={styles['form__group']}>
-                    <div className={styles['form__item']}>
-                        <input type="radio" value="Unknown" checked={formData.size === 'Unknown'} name="size" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} required /> <span className={styles['form__input--text']}>Unknown</span>
-                    </div>
                     <div className={styles['form__item']}>
                         <input type="radio" value="Small" checked={formData.size === 'Small'} name="size" onChange={handleChange} className={`${styles['form__input']} ${styles["form__input--radio"]}`} /> <span className={styles['form__input--text']}>Small</span>
                     </div>

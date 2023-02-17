@@ -1,8 +1,12 @@
-import Head from 'next/head'
-import Header from '../components/Header'
-import styles from '../styles/Home.module.scss'
+import { useState } from 'react';
+import Head from 'next/head';
+import styles from '../styles/Home.module.scss';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const [zipCode, setZipCode] = useState('');
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -12,11 +16,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles['homepage']}>
-       <h2 className={styles['homepage__title']}>Find Your New Best Friend</h2>
-       <form className={styles['homepage__form']}>
-          <input name='zipcode' id='zipcode' type='number' placeholder='Enter your zipcode to search Available Pets' className={styles['homepage__input']} />
+        <h2 className={styles['homepage__title']}>Find Your New Best Friend</h2>
+        <form className={styles['homepage__form']} onSubmit={event => { event.preventDefault(); router.push(`/pets/${zipCode}`) }}>
+          <input name='zipcode' id='zipcode' value={zipCode} onChange={event => setZipCode(event.target.value)} type='number' placeholder='Type your zip code to search available pets' className={styles['homepage__input']} />
           <input type='submit' value='Find my new pet' className={`${styles['homepage__input']} ${styles['homepage__input--submit']}`} />
-       </form>
+        </form>
       </main>
     </>
   )

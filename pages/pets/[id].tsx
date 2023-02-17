@@ -1,8 +1,8 @@
-import IPet from '../../types/pet';
 import { PrismaClient } from "@prisma/client";
-import { NextApiRequest } from "next";
-import Head from 'next/head';
+import { NextPageContext } from "next";
+import Head from "next/head";
 import PetList from "../../components/PetList";
+import IPet from "../../types/pet";
 
 function Pets({ pets }: { pets: IPet[] }) {
     return (
@@ -15,9 +15,14 @@ function Pets({ pets }: { pets: IPet[] }) {
     )
 }
 
-export const getServerSideProps = async ({ req }: { req: NextApiRequest }) => {
+export const getServerSideProps = async (context: NextPageContext) => {
+    const { id } = context.query;
     const prisma = new PrismaClient();
-    const pets = await prisma.pets.findMany();
+    const pets = await prisma.pets.findMany({
+        where: {
+            location: id as string
+        }
+    });
     return { props: { pets } }
 }
 
