@@ -1,0 +1,27 @@
+@use './variables';
+
+.error {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__heading {
+        font-size: 32px;
+        margin-top: 48px;
+    }
+    
+    &__button {
+        margin-top: 16px;
+        width: 180px;
+        padding: 12px;
+        background-color: variables.$secondary-color;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
