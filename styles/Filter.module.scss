@@ -1,10 +1,10 @@
 @use './variables';
 
 .form {
-    background-color: #f2f2f2;
-    padding: .5rem;
+    background-color: #f6f6f7;
+    padding: .5rem 1rem;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 960px) {
         width: 20%;
     }
 
@@ -15,7 +15,7 @@
         color: white;
         border: none;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 960px) {
             display: none;
         }
     }
@@ -27,16 +27,17 @@
             display: initial;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 960px) {
             display: initial;
         }
     }
 
-    &__title {
+    &__heading {
         font-size: 1.2rem;
         margin-top: 1rem;
+        font-weight: 600;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 960px) {
             margin-top: initial;
 
             &:not(:first-child) {
@@ -50,9 +51,14 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: 4px;
-        margin-top: .5rem;
+        padding-bottom: .5rem;
 
-        @media screen and (min-width: 768px) {
+
+        &:not(:last-child) {
+            // border-bottom: 1px solid variables.$primary-color;
+        }
+
+        @media screen and (min-width: 960px) {
             display: flex;
             flex-direction: column;
         }
@@ -60,6 +66,7 @@
 
     &__label {
         font-size: 22px;
+        font-weight: 300;
     }
 
     &__input {

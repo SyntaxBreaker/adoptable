@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: 16px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 960px) {
         flex-direction: row;
     }
 
@@ -13,9 +13,9 @@
         width: 100%;
         margin-top: 1rem;
         margin-bottom: 1rem;
-        padding: .5rem;
+        padding: .5rem 1rem;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 960px) {
             margin-top: initial;
             width: 80%;
         }
@@ -30,14 +30,14 @@
     }
 
     &__link {
-        flex-basis: 48%;
+        flex-basis: calc(50% - 4px);
 
-        @media screen and (min-width: 768px) {
-            flex-basis: 32%;
+        @media screen and (min-width: 960px) {
+            flex-basis: calc(33% - 3.5px);
         }
 
         @media screen and (min-width: 1200px) {
-            flex-basis: 24%;
+            flex-basis: calc(25% - 6.5px);
         }
     }
 }
