@@ -22,17 +22,17 @@ export function Filter({ filters, setFilters }: { filters: Filters, setFilters: 
     }
 
     return (
-        <section className={styles['form']}>
-            <button className={`${styles['form__button']}`} onClick={() => setIsOpen(!isOpen)}>Filter</button>
-            <form className={`${styles['form__container']} ${isOpen && styles['form__container--visible']}`}>
+        <section className={styles['filter']}>
+            <button className={`${styles['filter__button']}`} onClick={() => setIsOpen(!isOpen)}>Filter</button>
+            <form className={`${styles['filter__container']} ${isOpen && styles['filter__container--visible']}`}>
                 {filters.map(filter => (
                     <React.Fragment key={filter.title}>
-                        <h2 className={styles['form__heading']}>{filter.title}</h2>
-                        <div className={styles['form__item']}>
+                        <h2 className={styles['filter__heading']}>{filter.title}</h2>
+                        <div className={styles['filter__item']}>
                             {filter.checkboxes.map(checkbox => (
-                                <label key={checkbox.name} className={styles['form__label']}>
+                                <label key={checkbox.name} className={styles['filter__label']}>
                                     <input
-                                        className={styles['form__input']}
+                                        className={styles['filter__input']}
                                         type="checkbox"
                                         name={checkbox.name}
                                         checked={checkbox.checked}

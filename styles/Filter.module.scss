@@ -1,8 +1,8 @@
 @use './variables';
 
-.form {
+.filter {
     background-color: #f6f6f7;
-    padding: .5rem 1rem;
+    padding: 1rem;
 
     @media screen and (min-width: 960px) {
         width: 20%;
@@ -52,11 +52,6 @@
         flex-wrap: wrap;
         gap: 4px;
         padding-bottom: .5rem;
-
-
-        &:not(:last-child) {
-            // border-bottom: 1px solid variables.$primary-color;
-        }
 
         @media screen and (min-width: 960px) {
             display: flex;
