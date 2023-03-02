@@ -213,15 +213,17 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
                     </div>
                 </div>
             </label>
-            <>
-                <h2 className={`${styles['form__heading']} ${styles['form__heading--normal']}`}>Uploaded images:</h2>
-                <div className={styles['form__images']}>
-                    {formData.images?.map(image => (
-                        <Image src={image} width={0} height={0} sizes="100vw" alt='' className={styles['form__image']} onClick={() => handleRemoveUploadedImages(image)} key={image} />
-                    ))}
-                </div>
-                <p className={`${styles['form__paragraph']}`}>Click the image to remove it.</p>
-            </>
+            {formData.images!.length > 0 &&
+                <>
+                    <h2 className={`${styles['form__heading']} ${styles['form__heading--normal']}`}>Uploaded images:</h2>
+                    <div className={styles['form__images']}>
+                        {formData.images?.map(image => (
+                            <Image src={image} width={0} height={0} sizes="100vw" alt='' className={styles['form__image']} onClick={() => handleRemoveUploadedImages(image)} key={image} />
+                        ))}
+                    </div>
+                    <p className={`${styles['form__paragraph']}`}>Click the image to remove it.</p>
+                </>
+            }
             <label className={styles['form__label']}>
                 Images:
                 <input type="file" name='images' multiple onChange={handleChange} className={styles['form__input']} />
