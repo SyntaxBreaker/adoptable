@@ -10,7 +10,7 @@ export default function Header() {
             <Link href='/' className={styles['header__title']}>Adoptable</Link>
             {user ? (
                 <div className={styles['header__links']}>
-                    <Link href="/account" className={styles['header__link']}>Account</Link>
+                    <Link href="/add" className={styles['header__link']}>Create</Link>
                     <Link href="/api/auth/logout" className={styles['header__link']}>Logout</Link>
                 </div>
             ) : <Link href="/api/auth/login" className={styles['header__link']}>Login</Link>}
