@@ -7,8 +7,7 @@
     @media screen and (min-width: 1200px) {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        gap: 16px;
+        gap: 32px;
     }
 
     &__image {
@@ -23,7 +22,7 @@
 
         @media screen and (min-width: 1200px) {
             margin-top: 0;
-            flex-basis: 60%;
+            flex-basis: 65%;
         }
     }
 
