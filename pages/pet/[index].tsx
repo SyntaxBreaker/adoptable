@@ -11,16 +11,15 @@ function Pet(pet: IPet) {
             <div className={styles['pet__header']}>
                 <Image src={pet.images[0]} width={600} height={600} alt='pet image' className={styles['pet__image']} />
             </div>
+            <div className={styles['pet__buttons']}>
+                <button className={styles['pet__button']}>Bookmark</button>
+                <Link href={`/edit/${pet.id}`} className={styles['pet__button']}>Edit</Link>
+                <button className={styles['pet__button']}>Remove</button>
+            </div>
             <div className={styles['pet__body']}>
-                <h2 className={styles["pet__headline"]}>Adoptable pets.</h2>
+                <h2 className={styles["pet__heading"]}>Adoptable pets.</h2>
                 <p>I&apos;m looking for my new home.</p>
                 <p>Could you be my new partner?</p>
-                <div className={styles['pet__buttons']}>
-                    <Link href={`/edit/${pet.id}`}>
-                        <Image src='/edit.svg' width={42} height={42} alt='Edit the announcement' className={`${styles['pet__button']} ${styles['pet__button--edit']}`} />
-                    </Link>
-                    <Image src='/heart.svg' width={42} height={42} alt='Add to favorites' className={`${styles['pet__button']} ${styles['pet__button--favorite']}`} />
-                </div>
                 <div className={styles["pet__details"]}>
                     <div className={styles["pet__card"]}>
                         <Image src='/pet.svg' width={32} height={32} alt='' />
@@ -106,9 +105,9 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
                 ...pet
             }
         }
-    } catch(err) {
+    } catch (err) {
         console.log(err);
-     }
+    }
 }
 
 export default Pet;
