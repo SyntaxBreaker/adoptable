@@ -1,21 +1,33 @@
+import { useEffect, useState } from 'react';
 import styles from '../../styles/Pet.module.scss';
 import Image from "next/image";
 import { PrismaClient } from "@prisma/client";
 import { GetServerSidePropsContext } from "next";
 import IPet from '../../types/pet';
 import Link from 'next/link';
+import { saveToLocalStorage, removeFromLocalStorage } from '../../utils/localStorage';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 function Pet(pet: IPet) {
+    const { user, error, isLoading } = useUser();
+    const [isExist, setIsExist] = useState<boolean>(false);
+
+    useEffect(() => {
+        setIsExist(JSON.parse(localStorage.getItem('favorites') as string)?.includes(pet.id))
+    }, [pet.id])
+
     return (
         <section className={styles['pet']}>
             <div className={styles['pet__header']}>
                 <Image src={pet.images[0]} width={600} height={600} alt='pet image' className={styles['pet__image']} />
             </div>
-            <div className={styles['pet__buttons']}>
-                <button className={styles['pet__button']}>Bookmark</button>
-                <Link href={`/edit/${pet.id}`} className={styles['pet__button']}>Edit</Link>
-                <button className={styles['pet__button']}>Remove</button>
-            </div>
+            {user && user.email === pet.authorId &&
+                <div className={styles['pet__buttons']}>
+                    {!isExist ? <button onClick={() => saveToLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Bookmark</button> : <button onClick={() => removeFromLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Unbookmark</button>}
+                    <Link href={`/edit/${pet.id}`} className={styles['pet__button']}>Edit</Link>
+                    <button className={styles['pet__button']}>Remove</button>
+                </div>
+            }
             <div className={styles['pet__body']}>
                 <h2 className={styles["pet__heading"]}>Adoptable pets.</h2>
                 <p>I&apos;m looking for my new home.</p>
