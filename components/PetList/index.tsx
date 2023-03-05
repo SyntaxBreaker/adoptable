@@ -73,7 +73,7 @@ function PetList({ pets }: { pets: IPet[] }) {
                 <div className={styles['pets__container']}>
                     <h2>{filteredPets.length} results in pets!</h2>
                     <div className={styles['pets__wrapper']}>
-                        {filteredPets.map(pet => (
+                        {filteredPets && filteredPets.map(pet => (
                             <Link href={`/pet/${pet.id}`} key={pet.id} className={styles['pets__link']}>
                                 <Card {...pet} />
                             </Link>
