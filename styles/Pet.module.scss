@@ -17,7 +17,7 @@
     }
 
     &__body {
-        margin-top: 32px;
+        margin-top: 16px;
 
         @media screen and (min-width: 1200px) {
             margin-top: 0;
@@ -26,6 +26,7 @@
     }
 
     &__heading {
+        margin-top: 16px;
         font-size: 36px;
     }
 
