@@ -16,16 +16,41 @@
         text-decoration: none;
     }
 
-    &__links {
-        display: flex;
-        gap: .5rem;
+    &__button {
+        color: white;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__menu {
+        display: none;
+
+        &--active {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            width: 100%;
+            position: absolute;
+            top: 48px;
+            left: 0;
+            background-color: variables.$primary-color;
+            padding: 1rem;
+        }
     }
 
     &__link {
-        color: black;
-        background-color: variables.$secondary-color;
-        padding: 4px 16px;
-        border-radius: 3px;
+        font-size: 1.4rem;
+        color: white;
         text-decoration: none;
+        text-align: center;
+
+        &:hover {
+            font-weight: 800;
+        }
     }
 }
