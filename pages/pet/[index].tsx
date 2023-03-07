@@ -11,15 +11,36 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 function Pet(pet: IPet) {
     const { user, error, isLoading } = useUser();
     const [isExist, setIsExist] = useState<boolean>(false);
+    const [imageIndex, setImageIndex] = useState<number>(0);
 
     useEffect(() => {
         setIsExist(JSON.parse(localStorage.getItem('favorites') as string)?.includes(pet.id))
-    }, [pet.id])
+    }, [pet.id]);
+
+
 
     return (
         <section className={styles['pet']}>
             <div className={styles['pet__header']}>
-                <Image src={pet.images[0]} width={600} height={600} alt='pet image' className={styles['pet__image']} />
+                <Image src={pet.images[imageIndex]} width={600} height={600} alt='pet image' className={styles['pet__image']} />
+                <button
+                    className={`${styles['pet__arrow']} ${styles['pet__arrow--left']}`}
+                    onClick={() => setImageIndex(imageIndex === 0 ? pet.images.length - 1 : imageIndex - 1)}>
+                    &#10094;
+                </button>
+                <button
+                    className={`${styles['pet__arrow']} ${styles['pet__arrow--right']}`}
+                    onClick={() => setImageIndex(imageIndex === pet.images.length - 1 ? 0 : imageIndex + 1)}>
+                    &#10095;
+                </button>
+                <div className={styles['pet__container']}>
+                    {pet.images.map((image, idx) =>
+                        <span
+                            className={`${styles['pet__point']} ${idx === imageIndex && styles['pet__point--active']}`}
+                            onClick={() => setImageIndex(idx)}>
+                        </span>
+                    )}
+                </div>
             </div>
             <div className={styles['pet__body']}>
                 {user && user.email === pet.authorId &&

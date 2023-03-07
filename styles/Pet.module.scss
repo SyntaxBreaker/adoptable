@@ -10,10 +10,59 @@
         gap: 32px;
     }
 
+    &__header {
+        position: relative;
+    }
+
     &__image {
         width: 100%;
-        height: 100%;
+        height: 90%;
         object-fit: cover;
+    }
+
+    &__arrow {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        border: none;
+        padding: 0 8px 8px 8px;
+        background: variables.$primary-color;
+        color: #f6f6f7;
+        font-size: 2rem;
+
+        &--left {
+            left: 1%;
+        }
+
+        &--right {
+            right: 1%;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__container {
+        margin: 16px 0;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    &__point {
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background-color: #ced4da;
+
+        &--active {
+            background-color: #6c757d;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__body {
