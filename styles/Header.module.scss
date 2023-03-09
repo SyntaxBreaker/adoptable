@@ -37,7 +37,7 @@
             width: 100%;
             position: absolute;
             top: 48px;
-            left: 0;
+            right: 0;
             background-color: variables.$primary-color;
             padding: 1rem;
             z-index: 1;
@@ -46,7 +46,7 @@
 
     &__link {
         font-size: 1.4rem;
-        color: white;
+        color: #f6f6f7;
         text-decoration: none;
         text-align: center;
 
