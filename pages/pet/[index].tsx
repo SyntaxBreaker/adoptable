@@ -36,6 +36,7 @@ function Pet(pet: IPet) {
                 <div className={styles['pet__container']}>
                     {pet.images.map((image, idx) =>
                         <span
+                            key={idx}
                             className={`${styles['pet__point']} ${idx === imageIndex && styles['pet__point--active']}`}
                             onClick={() => setImageIndex(idx)}>
                         </span>
@@ -55,63 +56,63 @@ function Pet(pet: IPet) {
                 <p>Could you be my new partner?</p>
                 <div className={styles["pet__details"]}>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>Name</p>
                             <p className={styles["pet__text"]}>{pet.name}</p>
                         </div>
                     </div>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>Species</p>
                             <p className={styles["pet__text"]}>{pet.species}</p>
                         </div>
                     </div>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>Breed</p>
                             <p className={styles["pet__text"]}>{pet.breed}</p>
                         </div>
                     </div>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>Gender</p>
                             <p className={styles["pet__text"]}>{pet.gender}</p>
                         </div>
                     </div>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>Age</p>
                             <p className={styles["pet__text"]}>{pet.age}</p>
                         </div>
                     </div>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>Size</p>
                             <p className={styles["pet__text"]}>{pet.size}</p>
                         </div>
                     </div>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>Location</p>
                             <p className={styles["pet__text"]}>{pet.location}</p>
                         </div>
                     </div>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>E-mail</p>
                             <p className={styles["pet__text"]}>{pet.authorId}</p>
                         </div>
                     </div>
                     <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={32} height={32} alt='' />
+                        <Image src='/pet.svg' width={48} height={48} alt='' />
                         <div className={styles["pet__description"]}>
                             <p className={styles["pet__title"]}>ID</p>
                             <p className={styles["pet__text"]}>{pet.id}</p>
