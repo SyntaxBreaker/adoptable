@@ -23,8 +23,8 @@
         align-items: center;
         justify-content: center;
         background-color: white;
-        width: 320px;
-        height: 80px;
+        width: 420px;
+        height: 180px;
         padding: 14px;
         border-radius: 6px;
     }
@@ -45,7 +45,43 @@
             border: none;
             margin-top: .5rem;
             border-radius: 6px;
+            color: black;
             background-color: variables.$secondary-color;
+        }
+
+        &--secondary {
+            color: white;
+            background-color: variables.$primary-color;
+        }
+    }
+
+    &__cta {
+        margin-top: 16px;
+        font-size: 20px;
+        position: relative;
+        max-width: 320px;
+        color: variables.$primary-color;
+
+        &::before,
+        &::after {
+            content: " ";
+            height: 2px;
+            width: 155px;
+            display: block;
+            position: absolute;
+            background: variables.$primary-color;
+        }
+
+        &::before {
+            margin-left: 50px;
+            top: 50%;
+            left: 0;
+        }
+
+        &::after {
+            margin-right: 50px;
+            top: 50%;
+            right: 0;
         }
     }
 }
