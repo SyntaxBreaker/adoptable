@@ -16,8 +16,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles['homepage']}>
-        <h2 className={styles['homepage__title']}>Find Your New Best Friend</h2>
         <form className={styles['homepage__form']} onSubmit={event => { event.preventDefault(); router.push(`/pets/${location}`) }}>
+          <h2 className={styles['homepage__title']}>Find Your New Best Friend</h2>
           <input name='location' id='location' value={location} onChange={event => setLocation(event.target.value)} type='text' placeholder='Type your zip code or location to search for available pets' className={styles['homepage__input']} />
           <input type='submit' value='Find my new pet' className={`${styles['homepage__input']} ${styles['homepage__input--submit']}`} />
           <span className={styles['homepage__cta']}>OR</span>
