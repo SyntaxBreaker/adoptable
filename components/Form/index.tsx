@@ -9,32 +9,17 @@ import Image from 'next/image';
 
 function Form({ method, pet }: { method: string, pet?: IPet }) {
     const [formData, setFormData] = useState<IFormData>({
-        name: '',
-        location: '',
-        species: '',
-        breed: '',
-        gender: '',
-        age: '',
-        size: '',
-        images: []
+        name: pet?.name || '',
+        location: pet?.location || '',
+        species: pet?.species || '',
+        breed: pet?.breed || '',
+        gender: pet?.gender || '',
+        age: pet?.age || '',
+        size: pet?.size || '',
+        images: pet?.images || []
     });
     const [images, setImages] = useState<string[]>([]);
     const { user, error, isLoading } = useUser();
-
-    useEffect(() => {
-        if (pet) {
-            setFormData(({
-                name: pet.name,
-                location: pet.location,
-                species: pet.species,
-                breed: pet.breed,
-                gender: pet.gender,
-                age: pet.age,
-                size: pet.size,
-                images: pet.images
-            }))
-        }
-    }, [pet])
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = event.target;
@@ -129,11 +114,11 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
         <form className={styles['form']} onSubmit={handleSubmit}>
             <label className={styles['form__label']}>
                 Name:
-                <input type="text" name='name' value={pet?.name} placeholder='Enter name' onChange={handleChange} className={styles['form__input']} required />
+                <input type="text" name='name' value={formData.name} placeholder='Enter name' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Location:
-                <input type="text" name='location' value={pet?.location} placeholder='Enter location' onChange={handleChange} className={styles['form__input']} required />
+                <input type="text" name='location' value={formData.location} placeholder='Enter location' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Species:
@@ -160,7 +145,7 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
             </label>
             <label className={styles['form__label']}>
                 Breed:
-                <input type="text" name='breed' value={pet?.breed} placeholder='Enter breed' onChange={handleChange} className={styles['form__input']} required />
+                <input type="text" name='breed' value={formData.breed} placeholder='Enter breed' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Gender:
