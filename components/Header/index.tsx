@@ -17,10 +17,11 @@ export default function Header() {
             <Link href='/' className={styles['header__title']}>Adoptable</Link>
             <button className={styles['header__button']} onClick={() => setIsOpen(!isOpen)} ref={buttonRef}>&#9776;</button>
             <nav className={`${styles['header__menu']} ${isOpen && styles['header__menu--active']}`} onClick={() => setIsOpen(!isOpen)} ref={navRef}>
+                <Link href="/" className={styles['header__link']}>Homepage</Link>
                 <Link href="/favorites" className={styles['header__link']}>Favorites</Link>
                 {user ? (
                     <>
-                        <Link href="/add" className={styles['header__link']}>Create</Link>
+                        <Link href="/add" className={styles['header__link']}>Create new offer</Link>
                         <Link href="/api/auth/logout" className={styles['header__link']}>Logout</Link>
                     </>
                 ) : <Link href="/api/auth/login" className={styles['header__link']}>Login</Link>}

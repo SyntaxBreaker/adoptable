@@ -33,14 +33,15 @@
         &--active {
             display: flex;
             flex-direction: column;
-            gap: .5rem;
+            gap: 1rem;
             width: 100%;
             position: absolute;
             top: 48px;
             right: 0;
             background-color: variables.$primary-color;
-            padding: 1rem;
+            padding: 2rem;
             z-index: 1;
+            height: calc(100% - 48px);
         }
     }
 
