@@ -129,11 +129,11 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
         <form className={styles['form']} onSubmit={handleSubmit}>
             <label className={styles['form__label']}>
                 Name:
-                <input type="text" name='name' value={pet?.name || ""} placeholder='Enter name' onChange={handleChange} className={styles['form__input']} required />
+                <input type="text" name='name' value={pet?.name} placeholder='Enter name' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Location:
-                <input type="text" name='location' value={pet?.location || ""} placeholder='Enter location' onChange={handleChange} className={styles['form__input']} required />
+                <input type="text" name='location' value={pet?.location} placeholder='Enter location' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Species:
@@ -160,7 +160,7 @@ function Form({ method, pet }: { method: string, pet?: IPet }) {
             </label>
             <label className={styles['form__label']}>
                 Breed:
-                <input type="text" name='breed' value={pet?.breed || ""} placeholder='Enter breed' onChange={handleChange} className={styles['form__input']} required />
+                <input type="text" name='breed' value={pet?.breed} placeholder='Enter breed' onChange={handleChange} className={styles['form__input']} required />
             </label>
             <label className={styles['form__label']}>
                 Gender:
