@@ -99,6 +99,17 @@
         &:hover {
             cursor: pointer;
         }
+
+        &--secondary {
+            padding: 7px;
+            background-color: transparent;
+            border: 1px solid variables.$primary-color;
+            color: black;
+        }
+
+        &--danger {
+            background-color: #B30000;
+        }
     }
 
     &__details {

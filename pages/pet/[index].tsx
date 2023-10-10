@@ -47,8 +47,8 @@ function Pet(pet: IPet) {
                 {user && user.email === pet.authorId &&
                     <div className={styles['pet__buttons']}>
                         {!isExist ? <button onClick={() => saveToLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Bookmark</button> : <button onClick={() => removeFromLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Unbookmark</button>}
-                        <Link href={`/edit/${pet.id}`} className={styles['pet__button']}>Edit</Link>
-                        <button className={styles['pet__button']}>Remove</button>
+                        <Link href={`/edit/${pet.id}`} className={`${styles['pet__button']} ${styles['pet__button--secondary']}`}>Edit</Link>
+                        <button className={`${styles['pet__button']} ${styles['pet__button--danger']}`}>Remove</button>
                     </div>
                 }
                 <h2 className={styles["pet__heading"]}>Adoptable pets.</h2>
