@@ -7,17 +7,27 @@ import IPet from '../../types/pet';
 import Link from 'next/link';
 import { saveToLocalStorage, removeFromLocalStorage } from '../../utils/localStorage';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import Router from 'next/router';
 
 function Pet(pet: IPet) {
     const { user, error, isLoading } = useUser();
     const [isExist, setIsExist] = useState<boolean>(false);
     const [imageIndex, setImageIndex] = useState<number>(0);
 
+    const handleRemoveOffer = async (event: React.SyntheticEvent) => {
+        try {
+            await fetch('/api/delete', {
+                method: 'DELETE',
+                body: JSON.stringify({ id: pet.id })
+            }).then(() => Router.push('/pets'))
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     useEffect(() => {
         setIsExist(JSON.parse(localStorage.getItem('favorites') as string)?.includes(pet.id))
     }, [pet.id]);
-
-
 
     return (
         <section className={styles['pet']}>
@@ -48,7 +58,7 @@ function Pet(pet: IPet) {
                     <div className={styles['pet__buttons']}>
                         {!isExist ? <button onClick={() => saveToLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Bookmark</button> : <button onClick={() => removeFromLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Unbookmark</button>}
                         <Link href={`/edit/${pet.id}`} className={`${styles['pet__button']} ${styles['pet__button--secondary']}`}>Edit</Link>
-                        <button className={`${styles['pet__button']} ${styles['pet__button--danger']}`}>Remove</button>
+                        <button className={`${styles['pet__button']} ${styles['pet__button--danger']}`} onClick={handleRemoveOffer}>Remove</button>
                     </div>
                 }
                 <h2 className={styles["pet__heading"]}>Adoptable pets.</h2>
