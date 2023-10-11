@@ -32,17 +32,19 @@ function Pet(pet: IPet) {
     return (
         <section className={styles['pet']}>
             <div className={styles['pet__header']}>
-                <Image src={pet.images[imageIndex]} width={600} height={600} alt='pet image' className={styles['pet__image']} />
-                <button
-                    className={`${styles['pet__arrow']} ${styles['pet__arrow--left']}`}
-                    onClick={() => setImageIndex(imageIndex === 0 ? pet.images.length - 1 : imageIndex - 1)}>
-                    &#10094;
-                </button>
-                <button
-                    className={`${styles['pet__arrow']} ${styles['pet__arrow--right']}`}
-                    onClick={() => setImageIndex(imageIndex === pet.images.length - 1 ? 0 : imageIndex + 1)}>
-                    &#10095;
-                </button>
+                <Image src={`${pet.images.length > 0 ? pet.images[imageIndex] : '/default.png'}`} width={300} height={300} alt='pet image' className={styles['pet__image']} />
+                {pet.images.length > 0 && <>
+                    <button
+                        className={`${styles['pet__arrow']} ${styles['pet__arrow--left']}`}
+                        onClick={() => setImageIndex(imageIndex === 0 ? pet.images.length - 1 : imageIndex - 1)}>
+                        &#10094;
+                    </button>
+                    <button
+                        className={`${styles['pet__arrow']} ${styles['pet__arrow--right']}`}
+                        onClick={() => setImageIndex(imageIndex === pet.images.length - 1 ? 0 : imageIndex + 1)}>
+                        &#10095;
+                    </button>
+                </>}
                 <div className={styles['pet__container']}>
                     {pet.images.map((image, idx) =>
                         <span
