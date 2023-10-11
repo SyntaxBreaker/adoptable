@@ -8,11 +8,24 @@ import Link from 'next/link';
 import { saveToLocalStorage, removeFromLocalStorage } from '../../utils/localStorage';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Router from 'next/router';
+import PetDetailCard from '../../components/PetDetailCard';
 
 function Pet(pet: IPet) {
     const { user, error, isLoading } = useUser();
     const [isExist, setIsExist] = useState<boolean>(false);
     const [imageIndex, setImageIndex] = useState<number>(0);
+
+    const details = [
+        { name: 'Name', value: pet.name },
+        { name: 'Species', value: pet.species },
+        { name: 'Breed', value: pet.breed },
+        { name: 'Gender', value: pet.gender },
+        { name: 'Age', value: pet.age },
+        { name: 'Size', value: pet.size },
+        { name: 'Location', value: pet.location },
+        { name: 'E-mail', value: pet.authorId },
+        { name: 'ID', value: pet.id }
+    ];
 
     const handleRemoveOffer = async (event: React.SyntheticEvent) => {
         try {
@@ -67,69 +80,9 @@ function Pet(pet: IPet) {
                 <p>I&apos;m looking for my new home.</p>
                 <p>Could you be my new partner?</p>
                 <div className={styles["pet__details"]}>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>Name</p>
-                            <p className={styles["pet__text"]}>{pet.name}</p>
-                        </div>
-                    </div>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>Species</p>
-                            <p className={styles["pet__text"]}>{pet.species}</p>
-                        </div>
-                    </div>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>Breed</p>
-                            <p className={styles["pet__text"]}>{pet.breed}</p>
-                        </div>
-                    </div>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>Gender</p>
-                            <p className={styles["pet__text"]}>{pet.gender}</p>
-                        </div>
-                    </div>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>Age</p>
-                            <p className={styles["pet__text"]}>{pet.age}</p>
-                        </div>
-                    </div>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>Size</p>
-                            <p className={styles["pet__text"]}>{pet.size}</p>
-                        </div>
-                    </div>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>Location</p>
-                            <p className={styles["pet__text"]}>{pet.location}</p>
-                        </div>
-                    </div>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>E-mail</p>
-                            <p className={styles["pet__text"]}>{pet.authorId}</p>
-                        </div>
-                    </div>
-                    <div className={styles["pet__card"]}>
-                        <Image src='/pet.svg' width={48} height={48} alt='' />
-                        <div className={styles["pet__description"]}>
-                            <p className={styles["pet__title"]}>ID</p>
-                            <p className={styles["pet__text"]}>{pet.id}</p>
-                        </div>
-                    </div>
+                    {details.map(detail => (
+                        <PetDetailCard {...detail} key={detail.name} />
+                    ))}
                 </div>
             </div>
         </section>
