@@ -127,11 +127,15 @@
 
     &__card {
         display: flex;
-        gap: 1rem;
+        flex-direction: row;
         align-items: center;
-        padding: 1rem;
-        background-color: variables.$secondary-color;
+        gap: 4px;
+        padding: 8px 12px;
+        background-color: rgba(62, 73, 122, .1);
+        border: 1px solid rgba(62, 73, 122, .1);
+        border-radius: 4px;
         width: 100%;
+        position: relative;
 
         @media screen and (min-width: 768px) {
             width: calc(100% / 2 - 8px);
@@ -140,11 +144,16 @@
         @media screen and (min-width: 1200px) {
             width: calc(100% / 2 - 12px)
         }
-    }
 
-    &__text {
-        margin-top: 8px;
-        color: #2f3a46;
-        text-decoration: #7C7777 underline;
+        &::before {
+            position: absolute;
+            left: -2px;
+            content: " ";
+            background-color: variables.$secondary-color;
+            height: 42px;
+            width: 4px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
     }
 }
