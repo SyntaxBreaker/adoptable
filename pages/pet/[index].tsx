@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
 import styles from '../../styles/Pet.module.scss';
 import Image from "next/image";
 import { PrismaClient } from "@prisma/client";
@@ -37,6 +37,26 @@ function Pet(pet: IPet) {
             console.log(err);
         }
     }
+
+    useEffect(() => {
+        const setPrevImage = () => setImageIndex(imageIndex => imageIndex === 0 ? pet.images.length - 1 : imageIndex - 1);
+        const setNextImage = () => setImageIndex(imageIndex => imageIndex === pet.images.length - 1 ? 0 : imageIndex + 1);
+
+        const handleImageChange = (e: Event) => {
+            const keyboardEvent = e as unknown as KeyboardEvent;
+            if (keyboardEvent.key === "ArrowLeft") {
+                setPrevImage();
+            } else if (keyboardEvent.key === "ArrowRight") {
+                setNextImage();
+            }
+        }
+
+        window.addEventListener("keydown", handleImageChange);
+
+        return () => {
+            window.removeEventListener("keydown", handleImageChange);
+        }
+    }, [])
 
     useEffect(() => {
         setIsExist(JSON.parse(localStorage.getItem('favorites') as string)?.includes(pet.id))
