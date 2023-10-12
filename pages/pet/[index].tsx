@@ -70,7 +70,7 @@ function Pet(pet: IPet) {
             </Head>
             <section className={styles['pet']}>
                 <div className={styles['pet__header']}>
-                    <Image src={`${pet.images.length > 0 ? pet.images[imageIndex] : '/default.png'}`} width={300} height={300} alt='pet image' className={styles['pet__image']} />
+                    <Image src={`${pet.images.length > 0 ? pet.images[imageIndex] : '/default.png'}`} width={1920} height={1080} alt='pet image' className={styles['pet__image']} />
                     {pet.images.length > 0 && <>
                         <button
                             className={`${styles['pet__arrow']} ${styles['pet__arrow--left']}`}
