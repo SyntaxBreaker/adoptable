@@ -9,6 +9,7 @@ import { saveToLocalStorage, removeFromLocalStorage } from '../../utils/localSto
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Router from 'next/router';
 import PetDetailCard from '../../components/PetDetailCard';
+import Head from "next/head";
 
 function Pet(pet: IPet) {
     const { user, error, isLoading } = useUser();
@@ -63,49 +64,54 @@ function Pet(pet: IPet) {
     }, [pet.id]);
 
     return (
-        <section className={styles['pet']}>
-            <div className={styles['pet__header']}>
-                <Image src={`${pet.images.length > 0 ? pet.images[imageIndex] : '/default.png'}`} width={300} height={300} alt='pet image' className={styles['pet__image']} />
-                {pet.images.length > 0 && <>
-                    <button
-                        className={`${styles['pet__arrow']} ${styles['pet__arrow--left']}`}
-                        onClick={() => setImageIndex(imageIndex === 0 ? pet.images.length - 1 : imageIndex - 1)}>
-                        &#10094;
-                    </button>
-                    <button
-                        className={`${styles['pet__arrow']} ${styles['pet__arrow--right']}`}
-                        onClick={() => setImageIndex(imageIndex === pet.images.length - 1 ? 0 : imageIndex + 1)}>
-                        &#10095;
-                    </button>
-                </>}
-                <div className={styles['pet__container']}>
-                    {pet.images.map((image, idx) =>
-                        <span
-                            key={idx}
-                            className={`${styles['pet__point']} ${idx === imageIndex && styles['pet__point--active']}`}
-                            onClick={() => setImageIndex(idx)}>
-                        </span>
-                    )}
-                </div>
-            </div>
-            <div className={styles['pet__body']}>
-                {user && user.email === pet.authorId &&
-                    <div className={styles['pet__buttons']}>
-                        {!isExist ? <button onClick={() => saveToLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Bookmark</button> : <button onClick={() => removeFromLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Unbookmark</button>}
-                        <Link href={`/edit/${pet.id}`} className={`${styles['pet__button']} ${styles['pet__button--secondary']}`}>Edit</Link>
-                        <button className={`${styles['pet__button']} ${styles['pet__button--danger']}`} onClick={handleRemoveOffer}>Remove</button>
+        <>
+            <Head>
+                <title>{`${pet.species} for adoption - ${pet.name}`}</title>
+            </Head>
+            <section className={styles['pet']}>
+                <div className={styles['pet__header']}>
+                    <Image src={`${pet.images.length > 0 ? pet.images[imageIndex] : '/default.png'}`} width={300} height={300} alt='pet image' className={styles['pet__image']} />
+                    {pet.images.length > 0 && <>
+                        <button
+                            className={`${styles['pet__arrow']} ${styles['pet__arrow--left']}`}
+                            onClick={() => setImageIndex(imageIndex === 0 ? pet.images.length - 1 : imageIndex - 1)}>
+                            &#10094;
+                        </button>
+                        <button
+                            className={`${styles['pet__arrow']} ${styles['pet__arrow--right']}`}
+                            onClick={() => setImageIndex(imageIndex === pet.images.length - 1 ? 0 : imageIndex + 1)}>
+                            &#10095;
+                        </button>
+                    </>}
+                    <div className={styles['pet__container']}>
+                        {pet.images.map((image, idx) =>
+                            <span
+                                key={idx}
+                                className={`${styles['pet__point']} ${idx === imageIndex && styles['pet__point--active']}`}
+                                onClick={() => setImageIndex(idx)}>
+                            </span>
+                        )}
                     </div>
-                }
-                <h2 className={styles["pet__heading"]}>Adoptable pets.</h2>
-                <p>I&apos;m looking for my new home.</p>
-                <p>Could you be my new partner?</p>
-                <div className={styles["pet__details"]}>
-                    {details.map(detail => (
-                        <PetDetailCard {...detail} key={detail.name} />
-                    ))}
                 </div>
-            </div>
-        </section>
+                <div className={styles['pet__body']}>
+                    {user && user.email === pet.authorId &&
+                        <div className={styles['pet__buttons']}>
+                            {!isExist ? <button onClick={() => saveToLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Bookmark</button> : <button onClick={() => removeFromLocalStorage('favorites', pet.id, setIsExist)} className={styles['pet__button']}>Unbookmark</button>}
+                            <Link href={`/edit/${pet.id}`} className={`${styles['pet__button']} ${styles['pet__button--secondary']}`}>Edit</Link>
+                            <button className={`${styles['pet__button']} ${styles['pet__button--danger']}`} onClick={handleRemoveOffer}>Remove</button>
+                        </div>
+                    }
+                    <h2 className={styles["pet__heading"]}>Adoptable pets.</h2>
+                    <p>I&apos;m looking for my new home.</p>
+                    <p>Could you be my new partner?</p>
+                    <div className={styles["pet__details"]}>
+                        {details.map(detail => (
+                            <PetDetailCard {...detail} key={detail.name} />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
 
