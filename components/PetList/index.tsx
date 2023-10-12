@@ -3,7 +3,6 @@ import { Filter } from "../Filter";
 import styles from '../../styles/Pets.module.scss';
 import filterData from '../../utils/filter';
 import IPet from '../../types/pet';
-import Head from 'next/head';
 import Link from "next/link";
 import Card from "../Card";
 
@@ -64,24 +63,19 @@ function PetList({ pets }: { pets: IPet[] }) {
     }, [filters]);
 
     return (
-        <>
-            <Head>
-                <title>All pets</title>
-            </Head>
-            <div className={styles['pets']}>
-                <Filter filters={filters} setFilters={setFilters} />
-                <div className={styles['pets__container']}>
-                    <h2>{filteredPets.length} results in pets!</h2>
-                    <div className={styles['pets__wrapper']}>
-                        {filteredPets && filteredPets.map(pet => (
-                            <Link href={`/pet/${pet.id}`} key={pet.id} className={styles['pets__link']}>
-                                <Card {...pet} />
-                            </Link>
-                        ))}
-                    </div>
+        <div className={styles['pets']}>
+            <Filter filters={filters} setFilters={setFilters} />
+            <div className={styles['pets__container']}>
+                <h2>{filteredPets.length} results in pets!</h2>
+                <div className={styles['pets__wrapper']}>
+                    {filteredPets && filteredPets.map(pet => (
+                        <Link href={`/pet/${pet.id}`} key={pet.id} className={styles['pets__link']}>
+                            <Card {...pet} />
+                        </Link>
+                    ))}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

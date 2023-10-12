@@ -3,6 +3,7 @@ import PetList from "../components/PetList";
 import IPet from '../types/pet';
 import { getItemsFromLocalStorage } from '../utils/localStorage';
 import axios from "axios";
+import Head from "next/head";
 
 export default function Favorites() {
     const [pets, setPets] = useState<IPet[]>([]);
@@ -19,6 +20,8 @@ export default function Favorites() {
                     });
 
                     setPets(res.data);
+                } else {
+                    setPets([]);
                 }
             } catch (err) { }
         }
@@ -27,6 +30,11 @@ export default function Favorites() {
     }, [])
 
     return (
-        <PetList pets={pets} />
+        <>
+            <Head>
+                <title>Favorite pets</title>
+            </Head>
+            <PetList pets={pets} />
+        </>
     )
 }
