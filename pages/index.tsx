@@ -19,9 +19,7 @@ export default function Home() {
         <form className={styles['homepage__form']} onSubmit={event => { event.preventDefault(); router.push(`/pets/${location}`) }}>
           <h2 className={styles['homepage__title']}>Find Your New Best Friend</h2>
           <input name='location' id='location' value={location} onChange={event => setLocation(event.target.value)} type='text' placeholder='Type your zip code or location to search for available pets' className={styles['homepage__input']} />
-          <input type='submit' value='Find my new pet' className={`${styles['homepage__input']} ${styles['homepage__input--submit']}`} />
-          <span className={styles['homepage__cta']}>OR</span>
-          <input type='submit' value='Show all pets' className={`${styles['homepage__input']} ${styles['homepage__input--submit']} ${styles['homepage__input--secondary']}`} />
+          <input type='submit' value={`${location ? 'Find my new pet' : 'Show all pets'}`} className={`${styles['homepage__input']} ${styles['homepage__input--submit']}`} />
         </form>
       </main>
     </>

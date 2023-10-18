@@ -47,18 +47,11 @@
         }
 
         &--submit {
-            color: black;
-            background-color: variables.$secondary-color;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
-
-        &--secondary {
+            margin-top: 4px;
             color: white;
             background-color: variables.$primary-color;
         }
+
     }
 
     &__cta {
