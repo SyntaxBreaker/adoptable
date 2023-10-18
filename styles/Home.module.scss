@@ -13,7 +13,13 @@
     overflow: hidden;
 
     &__title {
-        color: variables.$secondary-color;
+        font-size: 20px;
+        color: #001d3d;
+    }
+
+    &__description {
+        font-size: 14px;
+        color: #2b2d42;
     }
 
     &__form {
@@ -21,8 +27,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: .5rem;
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.4);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(10px);
         width: 360px;
@@ -35,6 +40,7 @@
     }
 
     &__input {
+        margin-top: 8px;
         width: 100%;
         padding: 8px;
         text-align: center;
@@ -47,7 +53,7 @@
         }
 
         &--submit {
-            margin-top: 4px;
+            margin-top: 8px;
             color: white;
             background-color: variables.$primary-color;
         }
