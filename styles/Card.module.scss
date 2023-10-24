@@ -33,7 +33,7 @@
         bottom: 0rem;
         width: 100%;
         padding: .5rem .8rem;
-        background: variables.$primary-color;
+        background: rgba(62, 73, 122, 0.9);
         color: white;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
@@ -44,7 +44,10 @@
         font-weight: 600;
     }
 
-    &__gender {
+    &__information {
+        display: flex;
+        gap: 4px;
         font-size: .75rem;
+        color: #c7ccdb;
     }
 }
