@@ -56,6 +56,10 @@
             margin-top: 8px;
             color: white;
             background-color: variables.$primary-color;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
     }
