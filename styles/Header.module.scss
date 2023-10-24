@@ -9,6 +9,9 @@
     padding: 0 1rem;
     background-color: variables.$primary-color;
     height: 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
     &__title {
         color: white;
@@ -41,7 +44,7 @@
             background-color: variables.$primary-color;
             padding: 2rem;
             z-index: 1;
-            height: calc(100% - 48px);
+            height: calc(100vh - 48px);
         }
     }
 
