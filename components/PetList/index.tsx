@@ -70,9 +70,9 @@ function PetList({ pets }: { pets: IPet[] }) {
 
     return (
         <div className={styles['pets']}>
-            <Filter filters={filters} setFilters={setFilters} />
-            <div className={styles['pets__container']}>
-                <h2>{filteredPets.length} results in pets!</h2>
+            {filteredPets.length > 0 && <Filter filters={filters} setFilters={setFilters} />}
+            <div className={`${styles['pets__container']} ${filteredPets.length <= 0 && styles['pets__container--empty']}`}>
+                {filteredPets.length > 0 && <h2>{filteredPets.length} results in pets!</h2>}
                 {filteredPets.length > 0 ? <div className={styles['pets__wrapper']}>
                     {filteredPets && filteredPets.map(pet => (
                         <Link href={`/pet/${pet.id}`} key={pet.id} className={styles['pets__link']}>

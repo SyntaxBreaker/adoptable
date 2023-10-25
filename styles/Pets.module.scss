@@ -17,7 +17,10 @@
 
         @media screen and (min-width: 960px) {
             margin-top: initial;
-            width: 80%;
+        }
+
+        &--empty {
+            margin-top: 3rem;
         }
     }
 
@@ -47,7 +50,7 @@
         align-items: center;
         justify-content: center;
         gap: 4px;
-        height: calc(100% - 192px);
+        height: calc(100% - 48px);
     }
 
     &__heading {
