@@ -17,8 +17,8 @@
         width: 36px;
         height: 36px;
         position: absolute;
-        top: .5rem;
-        right: .5rem;
+        top: 8px;
+        right: 8px;
         border: none;
         border-radius: 50%;
         background-color: white;
@@ -30,9 +30,9 @@
 
     &__body {
         position: absolute;
-        bottom: 0rem;
+        bottom: 0;
         width: 100%;
-        padding: .5rem .8rem;
+        padding: 8px 12px;
         background: rgba(62, 73, 122, 0.9);
         color: white;
         border-bottom-left-radius: 8px;
@@ -40,14 +40,14 @@
     }
 
     &__name {
-        font-size: 1rem;
+        font-size: 16px;
         font-weight: 600;
     }
 
     &__information {
         display: flex;
         gap: 4px;
-        font-size: .75rem;
+        font-size: 12px;
         color: #c7ccdb;
     }
 }

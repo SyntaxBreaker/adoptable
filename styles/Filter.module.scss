@@ -1,7 +1,7 @@
 @use './variables';
 
 .filter {
-    padding: 1rem;
+    padding: 16px;
 
     @media screen and (min-width: 960px) {
         width: 20%;
@@ -9,7 +9,7 @@
 
     &__button {
         width: 100%;
-        padding: .5rem;
+        padding: 8px;
         background-color: variables.$primary-color;
         color: white;
         border: none;
@@ -33,14 +33,14 @@
 
     &__heading {
         font-size: 16px;
-        margin-top: 1rem;
+        margin-top: 16px;
         font-weight: 600;
 
         @media screen and (min-width: 960px) {
             margin-top: initial;
 
             &:not(:first-child) {
-                margin-top: 1rem;
+                margin-top: 16px;
             }
         }
     }
@@ -50,7 +50,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: 4px;
-        padding-bottom: .5rem;
+        padding-bottom: 8px;
 
         @media screen and (min-width: 960px) {
             display: flex;

@@ -11,24 +11,24 @@
 
     &__container {
         width: 100%;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        padding: .5rem 1rem;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        padding: 8px 16px;
 
         @media screen and (min-width: 960px) {
             margin-top: initial;
         }
 
         &--empty {
-            margin-top: 3rem;
+            margin-top: 48px;
         }
     }
 
     &__wrapper {
-        margin-top: .5rem;
+        margin-top: 8px;
         display: flex;
         flex-direction: row;
-        gap: .5rem;
+        gap: 8px;
         flex-wrap: wrap;
     }
 
