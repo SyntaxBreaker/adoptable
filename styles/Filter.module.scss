@@ -32,7 +32,7 @@
     }
 
     &__heading {
-        font-size: 1.2rem;
+        font-size: 16px;
         margin-top: 1rem;
         font-weight: 600;
 
@@ -59,13 +59,15 @@
     }
 
     &__label {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 300;
+        display: flex;
+        align-items: center;
     }
 
     &__input {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
         margin-right: 6px;
         appearance: none;
         border-radius: 4px;
