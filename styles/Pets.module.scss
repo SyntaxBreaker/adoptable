@@ -68,6 +68,12 @@
         color: #6c757d;
     }
 
+    &__login-message {
+        font-size: 14px;
+        color: #3E497A;
+        font-weight: bold;
+    }
+
     &__button {
         margin-top: 12px;
         background-color: variables.$primary-color;
