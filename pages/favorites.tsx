@@ -32,7 +32,7 @@ export default function Favorites() {
     return (
         <>
             <Head>
-                <title>Favorite pets</title>
+                <title>Favorite pets - Adoptable</title>
             </Head>
             <PetList pets={pets} />
         </>

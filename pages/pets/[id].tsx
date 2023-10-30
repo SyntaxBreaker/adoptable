@@ -8,7 +8,7 @@ function Pets({ pets }: { pets: IPet[] }) {
     return (
         <>
             <Head>
-                <title>All pets</title>
+                <title>All pets - Adoptable</title>
             </Head>
             <PetList pets={pets} />
         </>

@@ -5,7 +5,7 @@ function Add() {
     return (
         <>
             <Head>
-                <title>Add a pet</title>
+                <title>Add a pet - Adoptable</title>
             </Head>
             <Form method='POST' />
         </>

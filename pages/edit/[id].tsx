@@ -8,7 +8,7 @@ function Edit(pet: IPet) {
     return (
         <>
             <Head>
-                <title>Edit pet announcement</title>
+                <title>Edit pet announcement - Adoptable</title>
             </Head>
             <Form method="PUT" pet={pet} />
         </>
