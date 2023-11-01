@@ -81,7 +81,7 @@ function PetList({ pets }: { pets: IPet[] }) {
                     ))}
                 </div> : <div className={styles['pets__empty']}>
                     <Image src="/empty.svg" alt="" width={300} height={300} />
-                    <h3 className={styles['pets__heading']}>It&apos;s empty here!</h3>
+                    <h1 className={styles['pets__heading']}>It&apos;s empty here!</h1>
                     <p className={styles['pets__text']}>{pathname === '/pets' ? 'No pets are available.' : 'No favorite pets are available.'}</p>
                     {user ? (
                         <Link href={`${pathname === '/pets' ? '/add' : '/pets'}`} className={styles['pets__button']}>{pathname === '/pets' ? 'Add pet' : 'See all pets'}</Link>
