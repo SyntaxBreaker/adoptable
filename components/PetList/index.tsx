@@ -84,10 +84,7 @@ function PetList({ pets }: { pets: IPet[] }) {
                     <h3 className={styles['pets__heading']}>It&apos;s empty here!</h3>
                     <p className={styles['pets__text']}>{pathname === '/pets' ? 'No pets are available.' : 'No favorite pets are available.'}</p>
                     {user ? (
-                        <>
-                            <p className={styles['pets__suggestion']}>Why not add some?</p>
-                            <Link href={`${pathname === '/pets' ? '/add' : '/pets'}`} className={styles['pets__button']}>{pathname === '/pets' ? 'Add pet' : 'See all pets'}</Link>
-                        </>
+                        <Link href={`${pathname === '/pets' ? '/add' : '/pets'}`} className={styles['pets__button']}>{pathname === '/pets' ? 'Add pet' : 'See all pets'}</Link>
                     ) :
                         <>
                             <p className={styles['pets__login-message']}>To add a new pet, please ensure you&apos;re logged in. Click here to log in:</p>
