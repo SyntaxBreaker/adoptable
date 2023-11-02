@@ -82,12 +82,14 @@ function PetList({ pets }: { pets: IPet[] }) {
                 </div> : <div className={styles['pets__empty']}>
                     <Image src="/empty.svg" alt="" width={300} height={300} />
                     <h1 className={styles['pets__heading']}>It&apos;s empty here!</h1>
-                    <p className={styles['pets__text']}>{pathname === '/pets' ? 'No pets are available.' : 'No favorite pets are available.'}</p>
                     {user ? (
-                        <Link href={`${pathname === '/pets' ? '/add' : '/pets'}`} className={styles['pets__button']}>{pathname === '/pets' ? 'Add pet' : 'See all pets'}</Link>
+                        <>
+                            <p className={styles['pets__text']}>{pathname === '/pets' ? 'No pets are available.' : 'No favorite pets are available.'}</p>
+                            <Link href={`${pathname === '/pets' ? '/add' : '/pets'}`} className={styles['pets__button']}>{pathname === '/pets' ? 'Add pet' : 'See all pets'}</Link>
+                        </>
                     ) :
                         <>
-                            <p className={styles['pets__login-message']}>To add a new pet, please ensure you&apos;re logged in. Click here to log in:</p>
+                            <p className={styles['pets__text']}>To add a new pet, please ensure you&apos;re logged in. Click here to log in:</p>
                             <Link href="/api/auth/login" className={styles['pets__button']}>Login</Link>
                         </>
                     }
