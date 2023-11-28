@@ -82,7 +82,7 @@ function PetList({ pets }: { pets: IPet[] }) {
                 </div> : <div className={styles['pets__empty']}>
                     <Image src="/empty.svg" alt="" width={300} height={300} />
                     <h1 className={styles['pets__heading']}>It&apos;s empty here!</h1>
-                    {user && pathname === '/pets' ? (
+                    {user && pathname?.includes('/pets') ? (
                         <>
                             <p className={styles['pets__text']}>No pets are available.</p>
                             <Link href='/add' className={styles['pets__button']}>Add pet</Link>
