@@ -1,7 +1,4 @@
 # Adoptable
-
-## Description
-
 Adoptable is a platform for adopting pets and potential adopters. It provides a centralized database of adoptable pets and a user-friendly interface for browsing and searching for pets.
 
 ## Table of Contents
@@ -50,6 +47,5 @@ A list of key features of the project, each described in detail:
 
 The project is under the MIT License.
 
-## Authors
-
-- [@SyntaxBreaker](https://www.github.com/SyntaxBreaker)
+## Author
+- **[SyntaxBreaker]**: [[GitHub](https://www.github.com/SyntaxBreaker)] [[Website](https://syntaxbreaker.netlify.app)]
